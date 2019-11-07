@@ -109,6 +109,11 @@
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>${plugin.maven.jococo.version}</version>
+                <configuration>
+                    <excludes>
+                        <exclude>**/*com/viooh/sandbox/TodoApplication.class</exclude>
+                    </excludes>
+                </configuration>
                 <executions>
                     <execution>
                         <goals>

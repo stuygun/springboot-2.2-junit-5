@@ -17,6 +17,7 @@ import static org.hamcrest.MatcherAssert.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
+@DisplayName("Task Service Tests")
 public class TaskServiceTest {
 
     @Autowired

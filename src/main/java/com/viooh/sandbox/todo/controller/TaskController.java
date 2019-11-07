@@ -22,18 +22,14 @@ public class TaskController {
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getTaskById(@PathVariable String id){
-        return Optional
-                .ofNullable(taskService.getTaskById(Long.parseLong(id)))
+        return (taskService.getTaskById(Long.parseLong(id)))
                 .map(task -> ResponseEntity.ok().body(task))
                 .orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @GetMapping("/{id}/close")
     public ResponseEntity<?> closeTask(@PathVariable String id){
-        return Optional
-                .ofNullable(taskService.getTaskById(Long.parseLong(id)))
-                .map(task -> ResponseEntity.ok().body(task))
-                .orElseGet(() -> ResponseEntity.notFound().build());
+        return ResponseEntity.ok(taskService.closeTask(Long.parseLong(id)));
     }
 
     //TODO: add query by title

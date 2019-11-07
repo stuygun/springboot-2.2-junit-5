@@ -16,7 +16,7 @@ public class TodoAppGlobalExceptionHandler extends ResponseEntityExceptionHandle
     @ExceptionHandler({CompletedTaskSaveException.class, TaskAlreadyClosedException.class, TaskNotFoundException.class})
     protected ResponseEntity<Object> handleConflict(RuntimeException ex, WebRequest request) {
         logger.error(ex.getMessage(), ex);
-        String bodyOfResponse = "An error occurred.";
+        String bodyOfResponse = "An error occurred!";
         return handleExceptionInternal(ex, bodyOfResponse,
                 new HttpHeaders(), HttpStatus.INTERNAL_SERVER_ERROR, request);
     }
